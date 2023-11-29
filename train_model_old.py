@@ -1,7 +1,6 @@
 import tensorflow as tf
 from tensorflow.keras import layers, models
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-import matplotlib.pyplot as plt
 
 def create_simple_cnn_model(input_shape, num_classes):
     model = models.Sequential([
@@ -27,33 +26,11 @@ def train_and_save_model(train_dir, test_dir, model_save_path, input_shape=(64, 
     # Model compilation
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-    # Model training with history to plot the training curves
-    history = model.fit(train_set, epochs=epochs, validation_data=test_set)
-
-    # Plot training curves
-    plot_training_curves(history)
+    # Model training
+    model.fit(train_set, epochs=epochs, validation_data=test_set)
 
     # Save the model
     model.save(model_save_path)
-
-def plot_training_curves(history):
-    # Plot training & validation accuracy values
-    plt.plot(history.history['accuracy'])
-    plt.plot(history.history['val_accuracy'])
-    plt.title('Model accuracy')
-    plt.ylabel('Accuracy')
-    plt.xlabel('Epoch')
-    plt.legend(['Train', 'Validation'], loc='upper left')
-    plt.show()
-
-    # Plot training & validation loss values
-    plt.plot(history.history['loss'])
-    plt.plot(history.history['val_loss'])
-    plt.title('Model loss')
-    plt.ylabel('Loss')
-    plt.xlabel('Epoch')
-    plt.legend(['Train', 'Validation'], loc='upper left')
-    plt.show()
 
 # Example usage
 train_and_save_model('data/train', 'data/test', 'flower_classification_model.h5')
