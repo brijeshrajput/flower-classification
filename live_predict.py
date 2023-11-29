@@ -23,7 +23,7 @@ def predict_live_frame(processed_frame):
     # Make predictions using the loaded model
     predictions = model.predict(processed_frame)
     class_index = np.argmax(predictions)
-    class_labels = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']  # Update with your actual class labels
+    class_labels = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']
     predicted_class = class_labels[class_index]
     return predicted_class
 

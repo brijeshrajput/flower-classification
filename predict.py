@@ -21,8 +21,8 @@ def predict_flowers(image_paths):
         processed_image = preprocess_image(image_path)
         predictions = model.predict(processed_image)
         class_index = np.argmax(predictions)
-        # You might need to define your own mapping of class indices to class labels
-        class_labels = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']  # Update with your actual class labels
+        
+        class_labels = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']
         class_label = class_labels[class_index]
         predictions_list.append(class_label)
     return predictions_list
@@ -43,9 +43,9 @@ def display_images(image_paths, predicted_classes):
         ax.set_title(predicted_classes[i])
     plt.show()
 
-# Example usage
-image_folder_path = 'testing/'  # Update with the folder containing your images
-image_paths = [os.path.join(image_folder_path, img) for img in os.listdir(image_folder_path) if img.endswith('.jpg')]
+# Executing
+image_folder_path = 'testing/'
+image_paths = [os.path.join(image_folder_path, img) for img in os.listdir(image_folder_path) if img.endswith('.jpg') or img.endswith('.png')]
 
 predicted_classes = predict_flowers(image_paths)
 display_images(image_paths, predicted_classes)

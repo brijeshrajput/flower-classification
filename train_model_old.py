@@ -32,5 +32,5 @@ def train_and_save_model(train_dir, test_dir, model_save_path, input_shape=(64, 
     # Save the model
     model.save(model_save_path)
 
-# Example usage
+# Executing
 train_and_save_model('data/train', 'data/test', 'flower_classification_model.h5')
