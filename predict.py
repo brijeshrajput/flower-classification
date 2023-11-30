@@ -40,7 +40,7 @@ def display_images(image_paths, predicted_classes):
         img = image.load_img(image_paths[i], target_size=(64, 64))
         ax.imshow(img)
         ax.axis('off')
-        ax.set_title(predicted_classes[i])
+        ax.set_title(predicted_classes[i], color='green')
     plt.show()
 
 # Executing
