@@ -22,7 +22,8 @@ def predict_flowers(image_paths):
         predictions = model.predict(processed_image)
         class_index = np.argmax(predictions)
         
-        class_labels = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']
+        # class_labels = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']
+        class_labels = ['Bougainvillea', 'Bright Eyes', 'Cape Jasmine', 'Chandni', 'Dhalia', 'Hibiscus', 'Marigold', 'Pink Oleander', 'Rose', 'Tecoma']
         class_label = class_labels[class_index]
         predictions_list.append(class_label)
     return predictions_list

@@ -23,7 +23,8 @@ def predict_live_frame(processed_frame):
     # Make predictions using the loaded model
     predictions = model.predict(processed_frame)
     class_index = np.argmax(predictions)
-    class_labels = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']
+    # class_labels = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']
+    class_labels = ['Bougainvillea', 'Bright Eyes', 'Cape Jasmine', 'Chandni', 'Dhalia', 'Hibiscus', 'Marigold', 'Pink Oleander', 'Rose', 'Tecoma']
     predicted_class = class_labels[class_index]
     return predicted_class
 
